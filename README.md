@@ -1,5 +1,4 @@
 # Docker Scraper for Oil Guage
-forked from: https://github.com/marecotec/Home_Assistant_Oil_Smart_Oil_Gauge
 
 # Use
 Set docker environment variables:
@@ -10,3 +9,5 @@ Set docker environment variables:
   mqtt_password = password to connect to your mqtt server
 
 Start Docker Container
+
+Container will scrape https://www.smartoilgauge.com/ hourly and send tank results to the MQTT Server specified. It is recommended to set your tank upload interval to hourly as the webpage only shows the latest interval, not past hourly values. This does drain the battery quicker, the company estimates it to be a yearly battery change with a 1hr upload interval.
