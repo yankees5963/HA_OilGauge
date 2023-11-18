@@ -39,10 +39,10 @@ while True:
     battery_status = browser.find_element(By.XPATH,"//div[@class='ts_col ts_battery']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
     days_to_low = browser.find_element(By.XPATH,"//div[@class='ts_col ts_days_to_low']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
 
-    print(str(current_fill_level))
-    print(str(current_fill_proportion))
-    print(str(battery_status))
-    print(str(days_to_low))
+    print('Current Fill Level: ' + str(current_fill_level) + 'gal')
+    print('Current Fill Percentage: ' + str(current_fill_proportion) + '%')
+    print('Battery Status: ' + str(battery_status))
+    print('Days till 1/4 tank: ' + str(days_to_low))
 
     msgs = [{"topic": "oilgauge/tanklevel", "retain": True , "payload": json.dumps({"current_fill_level": current_fill_level,
                                                                 "current_fill_proportion": current_fill_proportion,
