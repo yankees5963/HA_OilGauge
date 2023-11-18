@@ -1,0 +1,13 @@
+---
+version: "3"
+services:
+  oil_gauge_sensor:
+    image: yankees5963/ha_oilgauge:latest
+    container_name: oil_gauge_sensor
+    restart: always
+    environment:
+      - app_username=${APP_USER}
+      - app_password=${APP_PW}
+      - mqtt_server=${MQTT_SRV}
+      - mqtt_user=${MQTT_USER}
+      - mqtt_password=${MQTT_PW}
