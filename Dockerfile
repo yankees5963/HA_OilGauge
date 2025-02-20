@@ -7,9 +7,6 @@ LABEL run="docker run -tid --rm yankees5963/ha_oilgauge:latest" \
 
 ENV LANG C.UTF-8
 
-#Add oil script
-COPY oil.py /
-
 #Update Image
 RUN apt-get -qqy clean; \
     apt-get -qqy update; \
@@ -33,8 +30,15 @@ RUN apt-get -qqy clean; \
     rm -rf /tmp/*; \
     rm -rf /root/*;
 
+#Add User
+RUN useradd -rm -d /home/docker -s /bin/bash -u 1002 docker
+
+USER docker
 
 ENV Selenium_UseHeadlessDriver=true
+
+#Add oil script
+COPY oil.py /
 
 #add Dependencies
 RUN pip3 install --no-cache-dir --upgrade pip paho-mqtt selenium
