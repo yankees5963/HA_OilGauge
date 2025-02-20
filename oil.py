@@ -31,13 +31,13 @@ while True:
     browser.find_element(By.CSS_SELECTOR,"button.btn").click()
     browser.implicitly_wait(3)
 
-    var = browser.find_element_by_xpath('//p[contains(text(), "/")]').text
-    fill_level = browser.find_element_by_xpath("//div[@class='ts_col ts_level']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
+    var = browser.find_element("xpath",'//p[contains(text(), "/")]').text
+    fill_level = browser.find_element("xpath","//div[@class='ts_col ts_level']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
     fill_level = fill_level.split(r"/")
     current_fill_level = fill_level[0]
     current_fill_proportion = round((float(str(fill_level[0])) / float(str(fill_level[1]))) * 100, 1)
-    battery_status = browser.find_element_by_xpath("//div[@class='ts_col ts_battery']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
-    days_to_low = browser.find_element_by_xpath("//div[@class='ts_col ts_days_to_low']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
+    battery_status = browser.find_element("xpath","//div[@class='ts_col ts_battery']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
+    days_to_low = browser.find_element("xpath","//div[@class='ts_col ts_days_to_low']//div[@class='ts_col_val']//p").get_attribute("innerHTML")
 
     print('Current Fill Level: ' + str(current_fill_level) + 'gal')
     print('Current Fill Percentage: ' + str(current_fill_proportion) + '%')
