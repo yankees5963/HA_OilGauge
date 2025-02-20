@@ -41,6 +41,7 @@ ENV Selenium_UseHeadlessDriver=true
 COPY oil.py /
 
 #add Dependencies
-RUN pip3 install --no-cache-dir --upgrade pip paho-mqtt selenium
+RUN pip3 install --no-cache-dir --upgrade pip
+RUN pip3 install --no-cache-dir paho-mqtt selenium
 
 CMD ["python", "-u" , "/oil.py"]
